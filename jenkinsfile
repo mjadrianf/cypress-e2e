@@ -1,22 +1,16 @@
 pipeline {
-   agent any
+  agent {
+    // this image provides everything needed to run Cypress
+    docker {
+      image 'cypress/base:13'
+    }
+  }
 
-   stages {
-       stage('Dependencies') {
-           steps {
-               sh 'npm i'
-               sh 'npm install cypress-testrail'
-           }
-       }
-       stage('e2e Tests') {
-           steps {
-               sh 'npm run cy:run'
-           }
-       }
-       stage('Deploy') {
-           steps {
-               echo 'Deploying....'
-           }
-       }
-   }
+  stages {
+      steps {
+        sh 'npm ci'
+        sh "npm run cy:run"
+      }
+    }
+  }
 }
