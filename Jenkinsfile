@@ -24,7 +24,7 @@ pipeline {
              
              stage('Test 2') {
                   steps {
-                sh 'npm run cy:run'
+                sh 'npm run e2e'
                   }
                }
 
