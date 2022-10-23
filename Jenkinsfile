@@ -5,6 +5,7 @@ pipeline {
 
    environment {
        CHROME_BIN = '/bin/google-chrome'
+       CYPRESS_RECORD_KEY = credentials('cypress-record-key')
       
    }
 
@@ -18,13 +19,13 @@ pipeline {
          Parallel{
              stage('Test 1') {
                   steps {
-                sh 'npm run cy:e2e'
+                sh 'npm run test:ci:record'
                   }
                }
              
              stage('Test 2') {
                   steps {
-                sh 'npm run cy:e2e'
+                sh 'npm run test:ci:record'
                   }
                }
 
