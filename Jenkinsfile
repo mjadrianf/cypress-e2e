@@ -18,13 +18,13 @@ pipeline {
          Parallel{
              stage('Test 1') {
                   steps {
-                sh 'npm run cy:run'
+                sh 'npm run cy:e2e'
                   }
                }
              
              stage('Test 2') {
                   steps {
-                sh 'npm run e2e'
+                sh 'npm run cy:e2e'
                   }
                }
 
