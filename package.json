@@ -4,10 +4,11 @@
   "description": "end-to-end testing with cypress",
   "main": "index.js",
   "scripts": {
-    "cy:open": "cypress open",
-    "cy:e2e": "cypress run",
-    "test": "npm start & cypress run",
-    "test:ci:record": "npx cypress run --record"
+    "cypress:open": "cypress open --browser chrome --e2e",
+    "cypress:runDefault": "cypress run --spec cypress/e2e/*.cy.js",
+    "cypress:chrome": "cypress run --browser chrome --spec cypress/e2e/*.cy.js",
+    "cypress:edge": "cypress run --browser edge --spec cypress/e2e/*.cy.js",
+    "cypress:runChromeHeadless": "cypress run --headless --browser chrome --spec cypress/e2e/*.cy.js --record --key ebfba419-f7b0-4ac6-812d-da77d7011954"
   },
   "keywords": [
     "cypress",
